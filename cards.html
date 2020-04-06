@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards - Anisat Yunusa</title>
+    <link rel="stylesheet" href="css/cards.css">
+</head>
+<body>
+    <section class="card-container">
+        <div class="card">
+            <div class="card_nav">
+                <div class="card_nav_title">
+                    <p class="text">POS FAILURE RATE</p>
+                </div>
+                <div class="card_nav_buttons">
+                    <div class="state-button"></div>
+                    <div class="mode-button dark-mode-button"></div>
+                    <div class="mode-button light-mode-button"></div>
+                </div>
+            </div>
+            <div class="card_body">
+                <div class="card_body_top">
+                    <div class="card_body_top_left">
+                        <div class="default-state-metrics">
+                            <h1>12%</h1>
+                            <p>
+                                <span><img src="svgs/decreasePolygon.svg" alt="icon decrease"></span>
+                                14%
+                            </p>
+                        </div>
+                        <div class="mini-state-metrics">
+                            <h1>60%</h1>
+                            <p>
+                                <span><img src="svgs/increasePolygon.svg" alt="icon increase"></span>
+                                8%
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card_body_top_right">
+                        <div class="progress">
+                            <div class="progress_bar"></div>
+                            <div class="progress_oval"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card_body_bottom">
+                    <div class="info-icon"></div>
+                    <div class="text">
+                        <span>Source</span>
+                        <span>NIBSS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card_footer">
+                <ul class="tab-list">
+                    <li class="tab active">Daily</li>
+                    <li class="tab withBorder">Monthly</li>
+                    <li class="tab">Yearly</li>
+                </ul>
+               <div class="progress">
+                    <div class="progress_bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let cardContainer = document.querySelector(".card-container")
+            let moonBtn = document.querySelector(".dark-mode-button");
+            let sunBtn = document.querySelector(".light-mode-button");
+            let stateBtn = document.querySelector(".state-button");
+
+            moonBtn.addEventListener("click", function() {
+                cardContainer.classList.add("dark-mode");
+            })
+
+            sunBtn.addEventListener("click", function() {
+                cardContainer.classList.remove("dark-mode");
+            })
+
+            stateBtn.addEventListener("click", function() {
+                
+                if (cardContainer.classList.contains("full-state", "compact-state")) {
+                    cardContainer.classList.remove("full-state");
+                    cardContainer.classList.remove("compact-state");
+                }
+
+                else if (cardContainer.classList.contains("compact-state")) {
+                    cardContainer.classList.add ("full-state");
+                }
+
+                else {
+                    cardContainer.classList.add("compact-state");
+                }
+            })
+        </script>
+    </section>
+</body>
+</html>
